@@ -1,54 +1,437 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Description" content="Support page for Word Solitaire MindStack. Contact us for help, bug reports, or feedback about the game.">
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    body {background-color: #fff3e6}
-    p.p2 {margin: 0.0px 0.0px 30.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #646464; -webkit-text-stroke: #646464}
-    p.p4 {margin: 0.0px 0.0px 10.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #1a1a1a; -webkit-text-stroke: #1a1a1a}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica; color: #000000; color: rgba(0, 0, 0, 0.87); -webkit-text-stroke: rgba(0, 0, 0, 0.87)}
-    p.p7 {margin: 0.0px 0.0px 10.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #646464; -webkit-text-stroke: #646464}
-    p.p8 {margin: 0.0px 0.0px 10.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #262626; -webkit-text-stroke: #262626}
-    li.li6 {margin: 0.0px 0.0px 6.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #1a1a1a; -webkit-text-stroke: #1a1a1a}
-    span.s1 {font-kerning: none}
-    span.s2 {font-kerning: none; background-color: #ffffff}
-    span.s3 {-webkit-text-stroke: 0px #000000}
-    span.s4 {font-kerning: none; color: #646464; -webkit-text-stroke: 0px #646464}
-    span.s5 {font-kerning: none; color: #262626; -webkit-text-stroke: 0px #262626}
-    ul.ul1 {list-style-type: disc}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Mind Stack</title>
+  <meta name="description" content="Support page for Word Solitaire MindStack. Contact us for help, bug reports, or feedback about the game." />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --green-dark:     #1B4332;
+      --green-mid:      #2D6A4F;
+      --green-light:    #40916C;
+      --green-pale:     #B7E4C7;
+      --cream:          #F8F4EE;
+      --cream-dark:     #EDE8DF;
+      --text-primary:   #1A1A1A;
+      --text-secondary: #4A5568;
+      --text-muted:     #718096;
+      --accent:         #D4A843;
+      --border:         #D6CFC4;
+      --white:          #FFFFFF;
+      --card-bg:        #FFFFFF;
+      --radius:         12px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-primary);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 60%, var(--green-light) 100%);
+      padding: 48px 24px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(64,145,108,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 20%, rgba(212,168,67,0.15) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 50px;
+      padding: 7px 18px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .app-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .app-badge span {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(26px, 5vw, 38px);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    header h1 em {
+      font-style: normal;
+      color: var(--green-pale);
+    }
+
+    .header-meta {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 72px;
+    }
+
+    /* ── Section cards ── */
+    .section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .section-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--green-dark);
+      color: var(--white);
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--green-dark);
+    }
+
+    .section p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    /* ── Lists ── */
+    .policy-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .policy-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .policy-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--green-light);
+      margin-top: 8px;
+    }
+
+    .policy-list li strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* ── Highlight boxes ── */
+    .highlight-box {
+      border-radius: 8px;
+      padding: 13px 16px;
+      margin-top: 14px;
+      font-size: 13px;
+    }
+
+    .highlight-box.green {
+      background: #F0FAF4;
+      border-left: 3px solid var(--green-light);
+      color: var(--green-dark);
+    }
+
+    .highlight-box.amber {
+      background: #FEF9EC;
+      border-left: 3px solid var(--accent);
+      color: #744210;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.55;
+      color: inherit;
+    }
+
+    .highlight-box strong { font-weight: 600; }
+
+    /* ── Response time banner ── */
+    .response-banner {
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      border-radius: var(--radius);
+      padding: 26px 28px;
+      margin-bottom: 16px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .response-banner-icon {
+      font-size: 32px;
+      flex-shrink: 0;
+    }
+
+    .response-banner h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 17px;
+      margin-bottom: 4px;
+      color: var(--white);
+    }
+
+    .response-banner p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .response-banner strong {
+      color: var(--green-pale);
+      font-weight: 600;
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: var(--green-dark);
+      border-radius: var(--radius);
+      padding: 28px;
+      text-align: center;
+      margin-top: 28px;
+    }
+
+    .contact-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .contact-card p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 18px;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      padding: 11px 26px;
+      color: var(--white);
+      font-weight: 500;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .contact-email:hover { background: rgba(255,255,255,0.18); }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 20px 24px;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--green-mid);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    footer .footer-links {
+      margin-top: 6px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .section          { padding: 20px; }
+      .response-banner  { padding: 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .contact-card     { padding: 22px 18px; }
+    }
   </style>
 </head>
+
 <body>
-<h1 style="margin: 0.0px 0.0px 10.0px 0.0px; font: 32.0px 'Helvetica Neue'; color: #1a1a1a; -webkit-text-stroke: #1a1a1a"><span class="s1"><b>Support</b></span></h1>
-<p class="p2"><span class="s1">Word Solitaire MindStack</span></p>
-<h2 style="margin: 0.0px 0.0px 8.0px 0.0px; font: 20.0px 'Helvetica Neue'; color: #1a1a1a; -webkit-text-stroke: #1a1a1a"><span class="s1"><b>Need Help?</b></span></h2>
-<p class="p4"><span class="s1">If you have questions, feedback, or encounter any issues while playing Word Solitaire MindStack, we are here to help.</span></p>
-<p class="p4"><span class="s1">You can contact our support team using the email below.</span></p>
-<p class="p4"><span class="s2"><b>Email Support</b><b></b></span></p>
-<p class="p5"><span class="s2">mindstack.support@gmail.com</span></p>
-<h2 style="margin: 0.0px 0.0px 8.0px 0.0px; font: 20.0px 'Helvetica Neue'; color: #1a1a1a; -webkit-text-stroke: #1a1a1a"><span class="s1"><b>Common Topics</b></span></h2>
-<ul class="ul1">
-  <li class="li6"><span class="s3"></span><span class="s1">Game progress or level issues</span></li>
-  <li class="li6"><span class="s3"></span><span class="s1">In-app purchase questions</span></li>
-  <li class="li6"><span class="s3"></span><span class="s1">Bug reports or crashes</span></li>
-  <li class="li6"><span class="s3"></span><span class="s1">Feature requests and feedback</span></li>
-</ul>
-<h2 style="margin: 0.0px 0.0px 8.0px 0.0px; font: 20.0px 'Helvetica Neue'; color: #1a1a1a; -webkit-text-stroke: #1a1a1a"><span class="s1"><b>Response Time</b></span></h2>
-<p class="p4"><span class="s1">We typically respond to support requests within <b>24–48 hours</b>.</span></p>
-<h2 style="margin: 0.0px 0.0px 8.0px 0.0px; font: 20.0px 'Helvetica Neue'; color: #1a1a1a; -webkit-text-stroke: #1a1a1a"><span class="s1"><b>Helpful Information</b></span></h2>
-<p class="p4"><span class="s1">When contacting support, please include:</span></p>
-<ul class="ul1">
-  <li class="li6"><span class="s3"></span><span class="s1">Your device model (iPhone / iPad)</span></li>
-  <li class="li6"><span class="s3"></span><span class="s1">iOS version</span></li>
-  <li class="li6"><span class="s3"></span><span class="s1">A description of the issue</span></li>
-  <li class="li6"><span class="s3"></span><span class="s1">Screenshots if applicable</span></li>
-</ul>
-<p class="p7"><span class="s1">© 2026 Word Solitaire MindStack</span></p>
-<p class="p8"><span class="s1"><a href="file:///Users/pritpal/Documents/Pritpal/Projects/SolitaireWordAssociation/MindStackGame_Web/index.html">Home</a></span><span class="s4"> | <a href="file:///Users/pritpal/Documents/Pritpal/Projects/SolitaireWordAssociation/MindStackGame_Web/privacy.html"><span class="s5">Privacy Policy</span></a> | <a href="file:///Users/pritpal/Documents/Pritpal/Projects/SolitaireWordAssociation/MindStackGame_Web/terms.html"><span class="s5">Terms of Service</span></a></span></p>
+
+  <header>
+    <div class="header-inner">
+      <div class="app-badge">
+        <span class="dot"></span>
+        <span>Mind Stack</span>
+      </div>
+      <h1>Player <em>Support</em></h1>
+      <p class="header-meta">Word Solitaire MindStack</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Need Help -->
+    <div class="section" id="need-help">
+      <div class="section-header">
+        <div class="section-icon">🙋</div>
+        <div class="section-title">Need Help?</div>
+      </div>
+      <p>If you have questions, feedback, or encounter any issues while playing Word Solitaire MindStack, we are here to help.</p>
+      <p>You can reach our support team directly by email — we read every message and do our best to respond promptly.</p>
+      <div class="highlight-box green">
+        <p><strong>Email:</strong> mindstack.support@gmail.com</p>
+      </div>
+    </div>
+
+    <!-- Common Topics -->
+    <div class="section" id="common-topics">
+      <div class="section-header">
+        <div class="section-icon">💬</div>
+        <div class="section-title">Common Topics</div>
+      </div>
+      <ul class="policy-list">
+        <li><strong>Game Progress or Level Issues:</strong> Problems with levels, streaks, or progress not saving.</li>
+        <li><strong>In-App Purchase Questions:</strong> Coin packs, No Ads Forever, or restore purchases.</li>
+        <li><strong>Bug Reports or Crashes:</strong> Unexpected behaviour, freezes, or app crashes.</li>
+        <li><strong>Feature Requests &amp; Feedback:</strong> Suggestions to improve gameplay or add new features.</li>
+      </ul>
+    </div>
+
+    <!-- Helpful Info -->
+    <div class="section" id="helpful-info">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div class="section-title">Helpful Information</div>
+      </div>
+      <p>To help us resolve your issue as quickly as possible, please include the following when contacting support:</p>
+      <ul class="policy-list">
+        <li><strong>Device Model:</strong> e.g. iPhone 15, iPad Air</li>
+        <li><strong>iOS Version:</strong> Found in Settings → General → About</li>
+        <li><strong>App Version:</strong> Found in Settings → General → About → Mind Stack</li>
+        <li><strong>Description of the Issue:</strong> What happened and when</li>
+        <li><strong>Screenshots:</strong> Attach if applicable — they help a lot!</li>
+      </ul>
+      <div class="highlight-box amber">
+        <p>For purchase-related refunds, please contact <strong>Apple Support</strong> directly at <strong>support.apple.com</strong>, as all payments are processed by Apple.</p>
+      </div>
+    </div>
+
+    <!-- Response Time -->
+    <div class="response-banner" id="response-time">
+      <div class="response-banner-icon">⏱</div>
+      <div>
+        <h3>Response Time</h3>
+        <p>We typically respond to support requests within <strong>24–48 hours</strong>. We appreciate your patience and will get back to you as soon as we can.</p>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-card" id="contact">
+      <h3>Contact Us</h3>
+      <p>Send us an email anytime — we'd love to hear from you.</p>
+      <a class="contact-email" href="mailto:mindstack.support@gmail.com" id="email-link">✉ mindstack.support@gmail.com</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 TECHPIO SERVICES LLP — Mind Stack. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </footer>
+
 </body>
+
 </html>
