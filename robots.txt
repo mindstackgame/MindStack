@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mindstackgame.github.io/MindStack/sitemap.xml
